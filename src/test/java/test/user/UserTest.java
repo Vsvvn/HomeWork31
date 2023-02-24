@@ -21,25 +21,29 @@ public class UserTest {
     }
 
     @Test
+    @DisplayName("When an object is created by passing parameters, then the test is correct.")
     void userCheckArgument() {
-        String email = user1.getEmail();
-        String login = user1.getLogin();
+        String email = "test@ya.ru";
+        String login = "login";
         assertEquals(email, user1.getEmail());
         assertEquals(login, user1.getLogin());
     }
 
     @Test
+    @DisplayName("When an object is created without passing parameters to it, then the test is correct.")
     void noArgumentUser() {
-        assertNull(user2.getEmail(), user2.getLogin());
+        assertNull(user2.getEmail());
+        assertNull(user2.getLogin());
     }
 
     @Test
+    @DisplayName("When login and email do not match, then they are correct.")
     void notEqualEmailAndLogin() {
         assertNotEquals(user1.getEmail(), user1.getLogin());
     }
 
     @Test
-    @DisplayName("checking for the presence of '@' and dot characters in the email address")
+    @DisplayName("When the email address contains the characters '@' and '.', then the test is correct.")
     void checkEmail() {
 
         assertTrue(user1.getEmail().contains("@"));
